@@ -5,8 +5,7 @@ lazy val root = project
   .settings(
     name := "example",
     scalaVersion := "3.0.0",
-    externalResolvers += "Github packages" at "https://maven.pkg.github.com/dcascaval/scala-threejs-facades",
-
+    resolvers += Resolver.githubPackages("dcascaval", "scala-threejs-facades"),
     // Add SJS dom, which we need generally for DOM APIs
     libraryDependencies ++= Seq(
       ("org.scala-js" %%% "scalajs-dom" % "1.2.0")
