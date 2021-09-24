@@ -1,3 +1,5 @@
+externalResolvers += "Github packages" at "https://maven.pkg.github.com/dcascaval/scala-threejs-facades"
+
 // BASE SBT / SCALA3 / SCALAJS PROJECT SETUP
 lazy val root = project
   .in(file("."))
@@ -11,7 +13,7 @@ lazy val root = project
     libraryDependencies ++= Seq(
       ("org.scala-js" %%% "scalajs-dom" % "1.2.0")
         .cross(CrossVersion.for3Use2_13),
-      "org.cascaval" %%% "three-typings" % "0.1.7-SNAPSHOT"
+      "org.cascaval" %%% "scala-threejs-facades" % "0.131.0-SNAPSHOT"
     ),
 
     // This is a top-level application with a SJS main method
