@@ -1,13 +1,7 @@
-// Add a dependency on this project via git.
-lazy val threeTypes = RootProject(
-  uri("https://github.com/dcascaval/scala-threejs-facades.git")
-)
-
 // BASE SBT / SCALA3 / SCALAJS PROJECT SETUP
 lazy val root = project
   .in(file("."))
   .enablePlugins(ScalaJSPlugin)
-  .dependsOn(threeTypes)
   .settings(
     name := "example",
     scalaVersion := "3.0.0",
@@ -16,7 +10,8 @@ lazy val root = project
     // Add SJS dom, which we need generally for DOM APIs
     libraryDependencies ++= Seq(
       ("org.scala-js" %%% "scalajs-dom" % "1.2.0")
-        .cross(CrossVersion.for3Use2_13)
+        .cross(CrossVersion.for3Use2_13),
+      "org.cascaval" %%% "three-typings" % "0.1.7-SNAPSHOT"
     ),
 
     // This is a top-level application with a SJS main method
