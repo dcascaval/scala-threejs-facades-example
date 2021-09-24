@@ -1,5 +1,3 @@
-externalResolvers += "Github packages" at "https://maven.pkg.github.com/dcascaval/scala-threejs-facades"
-
 // BASE SBT / SCALA3 / SCALAJS PROJECT SETUP
 lazy val root = project
   .in(file("."))
@@ -7,7 +5,7 @@ lazy val root = project
   .settings(
     name := "example",
     scalaVersion := "3.0.0",
-    scalacOptions ++= Seq("-Yresolve-term-conflict:package"),
+    externalResolvers += "Github packages" at "https://maven.pkg.github.com/dcascaval/scala-threejs-facades",
 
     // Add SJS dom, which we need generally for DOM APIs
     libraryDependencies ++= Seq(
