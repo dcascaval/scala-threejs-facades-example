@@ -2,11 +2,21 @@
 <html>
 
 <head>
-  <title>Scala <3 THREE</title>
-  <script type="text/javascript" src="dist/three.min.js"></script>
-  <script type="text/javascript" src="./target/scala-3.0.0/example-fastopt.js"></script>
+  <meta charset="utf-8">
+  <title>Scala &lt;3 THREE</title>
 </head>
 
 <body>
+  <!-- 
+    using the LibraryOnly bundling mode from ScalaJS Bundler, described here:
+      https://github.com/scalacenter/scalajs-bundler/blob/master/manual/src/ornate/reference.md#library-only-bundling-mode-library-only.
+    this relies on `webpackBundlingMode := BundlingMode.LibraryOnly()` being set in `build.sbt`
+  -->
+  <script type="text/javascript" src="../target/scala-3.0.2/scalajs-bundler/main/example-fastopt-library.js"></script>
+  <script type="text/javascript" src="../target/scala-3.0.2/scalajs-bundler/main/example-fastopt-loader.js"></script>
+  <script type="text/javascript" src="../target/scala-3.0.2/scalajs-bundler/main/example-fastopt.js"></script>
+  <!-- when doing fullOpt, we probably don't want the above library pattern, so instead we include only the following: -->
+  <!-- <script type="test/javascript" src="../target/scala-3.0.2/scalajs-bundler/main/example-opt-bundle.js"></script> -->
 </body>
+
 </html>

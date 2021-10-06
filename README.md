@@ -1,7 +1,11 @@
 This is a fully contained starter example of using [scala-threejs-facades](https://github.com/dcascaval/scala-threejs-facades) in a project.
 
-You will need to export a GITHUB_TOKEN environment variable that can read from the Github Packages registry. In Github, go to `Settings > Developer Settings > Personal Access tokens` and create a new one with permissions `read:packages`. Export this by adding it to `~/.bashrc` (or equivalent) and reloading your shell.
+To run: 
+```
+sbt 
+> ~fastOptJS/webpack
+```
 
-```
-export GITHUB_TOKEN="<your token>"
-```
+and serve the `index.html` file or open it in a browser.
+
+This will generate a library bundle, and webpack will run only on the code in your project (i.e. not all of `THREE`) on file changes. Note that when releasing code, we should use `fullOptJS/webpack`, which will use ScalaJS's full optimizer as well as webpack's production mode. In this case you should comment out `webpackBundlingMode := BundlingMode.LibraryOnly()` in `build.sbt`, and adjust `index.html` to include the single bundle instead of the library bundles accordingly.
